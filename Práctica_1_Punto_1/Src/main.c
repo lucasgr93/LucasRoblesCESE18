@@ -65,14 +65,20 @@ int main(void)
   /* Configure the system clock to 180 MHz */
   SystemClock_Config();
 
-  /* Initialize BSP Led for LED2 */
+  BSP_LED_Init(LED1);
   BSP_LED_Init(LED2);
+  BSP_LED_Init(LED3);
+
+  uint32_t led = LED1;
 
   /* Infinite loop */
   while (1)
   {
-	  BSP_LED_Toggle(LED2);
-	  HAL_Delay(100);
+	  BSP_LED_On(led);
+	  HAL_Delay(200);
+	  BSP_LED_Off(led);
+	  HAL_Delay(200);
+	  (led < LED3) ? led++ : (led = LED1);
   }
 }
 
