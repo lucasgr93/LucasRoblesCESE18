@@ -22,7 +22,10 @@
 #include "main.h"
 #include "stdbool.h"
 
-bool API_BOTON_Estado = false;
+#define ON_DELAY 200
+#define OFF_DELAY 200
+
+bool API_LED_Secuencia = false;
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -70,24 +73,24 @@ int main(void)
   /* Infinite loop */
   while (1)
   {
-	  if(BSP_PB_GetState(BUTTON_USER) == 1)
+	  if(BSP_PB_GetState(BUTTON_USER))
 	  {
-		  API_BOTON_Estado = !API_BOTON_Estado;
+		  API_LED_Secuencia = !API_LED_Secuencia;
 	  }
-	  if(!API_BOTON_Estado)
+	  if(!API_LED_Secuencia)
 	  {
 		  BSP_LED_On(API_LED_Nro);
-		  HAL_Delay(200);
+		  HAL_Delay(ON_DELAY);
 		  BSP_LED_Off(API_LED_Nro);
-		  HAL_Delay(200);
+		  HAL_Delay(OFF_DELAY);
 		  (API_LED_Nro < LED3) ? API_LED_Nro++ : (API_LED_Nro = LED1);
 	  }
 	  else
 	  {
 		  BSP_LED_On(API_LED_Nro);
-		  HAL_Delay(200);
+		  HAL_Delay(ON_DELAY);
 		  BSP_LED_Off(API_LED_Nro);
-		  HAL_Delay(200);
+		  HAL_Delay(OFF_DELAY);
 		  (API_LED_Nro > LED1) ? API_LED_Nro-- : (API_LED_Nro = LED3);
 	  }
   }

@@ -37,15 +37,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_ranges 00000428  00000000  00000000  00026368  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  00024d2e  00000000  00000000  00026790  2**0
+ 17 .debug_macro  00024d3a  00000000  00000000  00026790  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   0000728f  00000000  00000000  0004b4be  2**0
+ 18 .debug_line   0000728f  00000000  00000000  0004b4ca  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000e10e5  00000000  00000000  0005274d  2**0
+ 19 .debug_str    000e1101  00000000  00000000  00052759  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000050  00000000  00000000  00133832  2**0
+ 20 .comment      00000050  00000000  00000000  0013385a  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00001118  00000000  00000000  00133884  2**2
+ 21 .debug_frame  00001118  00000000  00000000  001338ac  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -3710,14 +3710,14 @@ int main(void)
   /* Infinite loop */
   while (1)
   {
-	  if(BSP_PB_GetState(BUTTON_USER) == 1)
+	  if(BSP_PB_GetState(BUTTON_USER))
  8001838:	2000      	movs	r0, #0
  800183a:	f7fe ff33 	bl	80006a4 <BSP_PB_GetState>
  800183e:	4603      	mov	r3, r0
- 8001840:	2b01      	cmp	r3, #1
- 8001842:	d10e      	bne.n	8001862 <main+0x56>
+ 8001840:	2b00      	cmp	r3, #0
+ 8001842:	d00e      	beq.n	8001862 <main+0x56>
 	  {
-		  API_BOTON_Estado = !API_BOTON_Estado;
+		  API_LED_Secuencia = !API_LED_Secuencia;
  8001844:	4b24      	ldr	r3, [pc, #144]	; (80018d8 <main+0xcc>)
  8001846:	781b      	ldrb	r3, [r3, #0]
  8001848:	2b00      	cmp	r3, #0
@@ -3732,7 +3732,7 @@ int main(void)
  800185e:	4b1e      	ldr	r3, [pc, #120]	; (80018d8 <main+0xcc>)
  8001860:	701a      	strb	r2, [r3, #0]
 	  }
-	  if(!API_BOTON_Estado)
+	  if(!API_LED_Secuencia)
  8001862:	4b1d      	ldr	r3, [pc, #116]	; (80018d8 <main+0xcc>)
  8001864:	781b      	ldrb	r3, [r3, #0]
  8001866:	f083 0301 	eor.w	r3, r3, #1
@@ -3745,7 +3745,7 @@ int main(void)
  8001872:	b2db      	uxtb	r3, r3
  8001874:	4618      	mov	r0, r3
  8001876:	f7fe fe8b 	bl	8000590 <BSP_LED_On>
-		  HAL_Delay(200);
+		  HAL_Delay(ON_DELAY);
  800187a:	20c8      	movs	r0, #200	; 0xc8
  800187c:	f7fe fff8 	bl	8000870 <HAL_Delay>
 		  BSP_LED_Off(API_LED_Nro);
@@ -3753,7 +3753,7 @@ int main(void)
  8001882:	b2db      	uxtb	r3, r3
  8001884:	4618      	mov	r0, r3
  8001886:	f7fe fe9d 	bl	80005c4 <BSP_LED_Off>
-		  HAL_Delay(200);
+		  HAL_Delay(OFF_DELAY);
  800188a:	20c8      	movs	r0, #200	; 0xc8
  800188c:	f7fe fff0 	bl	8000870 <HAL_Delay>
 		  (API_LED_Nro < LED3) ? API_LED_Nro++ : (API_LED_Nro = LED1);
@@ -3775,7 +3775,7 @@ int main(void)
  80018a6:	b2db      	uxtb	r3, r3
  80018a8:	4618      	mov	r0, r3
  80018aa:	f7fe fe71 	bl	8000590 <BSP_LED_On>
-		  HAL_Delay(200);
+		  HAL_Delay(ON_DELAY);
  80018ae:	20c8      	movs	r0, #200	; 0xc8
  80018b0:	f7fe ffde 	bl	8000870 <HAL_Delay>
 		  BSP_LED_Off(API_LED_Nro);
@@ -3783,7 +3783,7 @@ int main(void)
  80018b6:	b2db      	uxtb	r3, r3
  80018b8:	4618      	mov	r0, r3
  80018ba:	f7fe fe83 	bl	80005c4 <BSP_LED_Off>
-		  HAL_Delay(200);
+		  HAL_Delay(OFF_DELAY);
  80018be:	20c8      	movs	r0, #200	; 0xc8
  80018c0:	f7fe ffd6 	bl	8000870 <HAL_Delay>
 		  (API_LED_Nro > LED1) ? API_LED_Nro-- : (API_LED_Nro = LED3);
@@ -3796,7 +3796,7 @@ int main(void)
  80018d0:	e7b2      	b.n	8001838 <main+0x2c>
  80018d2:	2302      	movs	r3, #2
  80018d4:	607b      	str	r3, [r7, #4]
-	  if(BSP_PB_GetState(BUTTON_USER) == 1)
+	  if(BSP_PB_GetState(BUTTON_USER))
  80018d6:	e7af      	b.n	8001838 <main+0x2c>
  80018d8:	2000003c 	.word	0x2000003c
 
