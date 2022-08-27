@@ -21,13 +21,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-/** @addtogroup STM32F4xx_HAL_Examples
-  * @{
-  */
-
-/** @addtogroup UART_Printf
-  * @{
-  */
+#define ON_DELAY 200
+#define OFF_DELAY 200
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -75,9 +70,9 @@ int main(void)
   while (1)
   {
 	  BSP_LED_On(led);
-	  HAL_Delay(200);
+	  HAL_Delay(ON_DELAY);
 	  BSP_LED_Off(led);
-	  HAL_Delay(200);
+	  HAL_Delay(OFF_DELAY);
 	  (led < LED3) ? led++ : (led = LED1);
   }
 }

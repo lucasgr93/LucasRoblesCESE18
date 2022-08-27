@@ -26,9 +26,10 @@
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
 	</section>
 	<section name="PDOMSearchPage">
-		<item key="caseSensitive" value="false"/>
+		<item key="caseSensitive" value="true"/>
 		<item key="searchFlags" value="227191"/>
 		<list key="previousPatterns">
+			<item value="WWDG_IRQHandler"/>
 			<item value="UART3_IRQn"/>
 		</list>
 	</section>
