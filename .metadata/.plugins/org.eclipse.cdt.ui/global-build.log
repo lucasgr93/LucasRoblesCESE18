@@ -1,14 +1,21 @@
-08:41:09 **** Incremental Build of configuration Debug for project Práctica_2_Punto_1 ****
+09:24:39 **** Incremental Build of configuration Debug for project Práctica_2_Punto_2 ****
 make -j4 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/Práctica_2_Punto_1/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/Práctica_2_Punto_1/Drivers/CMSIS/Include" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/Práctica_2_Punto_1/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/Práctica_2_Punto_1/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/Práctica_2_Punto_1/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "Práctica_2_Punto_1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/Práctica_2_Punto_1/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Práctica_2_Punto_1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Práctica_2_Punto_1.elf
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/Práctica_2_Punto_2/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/Práctica_2_Punto_2/Drivers/CMSIS/Include" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/Práctica_2_Punto_2/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/Práctica_2_Punto_2/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/Práctica_2_Punto_2/Drivers/Core/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Práctica_2_Punto_2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/Práctica_2_Punto_2/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Práctica_2_Punto_2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Práctica_2_Punto_2.elf
  
-arm-none-eabi-size   Práctica_2_Punto_1.elf 
-arm-none-eabi-objdump -h -S  Práctica_2_Punto_1.elf  > "Práctica_2_Punto_1.list"
+arm-none-eabi-size   Práctica_2_Punto_2.elf 
+arm-none-eabi-objdump -h -S  Práctica_2_Punto_2.elf  > "Práctica_2_Punto_2.list"
    text	   data	    bss	    dec	    hex	filename
-   5100	     32	   1568	   6700	   1a2c	Práctica_2_Punto_1.elf
+   6484	     32	   1608	   8124	   1fbc	Práctica_2_Punto_2.elf
 Finished building: default.size.stdout
  
-Finished building: Práctica_2_Punto_1.list
+Finished building: Práctica_2_Punto_2.list
+ 
+09:24:43 **** Incremental Build of configuration Debug for project Práctica_2_Punto_2 ****
+make -j4 all 
+arm-none-eabi-size   Práctica_2_Punto_2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6484	     32	   1608	   8124	   1fbc	Práctica_2_Punto_2.elf
+Finished building: default.size.stdout
  

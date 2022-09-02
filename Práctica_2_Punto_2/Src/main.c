@@ -36,9 +36,9 @@
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 
-delay_t delay100ms;
-delay_t delay500ms;
-delay_t delay1000ms;
+delay_t delayLED1;
+delay_t delayLED2;
+delay_t delayLED3;
 
 /* UART handler declaration */
 UART_HandleTypeDef UartHandle;
@@ -84,9 +84,9 @@ int main(void)
 	/* Infinite loop */
 	while (1)
 	{
-		if(delayRead(&delay100ms)) BSP_LED_Toggle(LED1);
-		if(delayRead(&delay500ms)) BSP_LED_Toggle(LED2);
-		if(delayRead(&delay1000ms)) BSP_LED_Toggle(LED3);
+		if(delayRead(&delayLED1)) BSP_LED_Toggle(LED1);
+		if(delayRead(&delayLED2)) BSP_LED_Toggle(LED2);
+		if(delayRead(&delayLED3)) BSP_LED_Toggle(LED3);
 	}
 }
 
@@ -122,9 +122,9 @@ void delayWrite( delay_t * delay, tick_t duration )
 
 void API_Delays_Config(void)
 {
-	delayInit(&delay100ms, 100);
-	delayInit(&delay500ms, 500);
-	delayInit(&delay1000ms, 1000);
+	delayInit(&delayLED1, DELAY_LED1);
+	delayInit(&delayLED2, DELAY_LED2);
+	delayInit(&delayLED3, DELAY_LED3);
 }
 
 

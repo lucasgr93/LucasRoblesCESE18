@@ -37,15 +37,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_ranges 00000448  00000000  00000000  00026468  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  00024d37  00000000  00000000  000268b0  2**0
+ 17 .debug_macro  00024d49  00000000  00000000  000268b0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   0000731c  00000000  00000000  0004b5e7  2**0
+ 18 .debug_line   0000731c  00000000  00000000  0004b5f9  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000e1152  00000000  00000000  00052903  2**0
+ 19 .debug_str    000e116d  00000000  00000000  00052915  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000050  00000000  00000000  00133a55  2**0
+ 20 .comment      00000050  00000000  00000000  00133a82  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  000011a8  00000000  00000000  00133aa8  2**2
+ 21 .debug_frame  000011a8  00000000  00000000  00133ad4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -3454,7 +3454,7 @@ int main(void)
 	/* Infinite loop */
 	while (1)
 	{
-		if(delayRead(&delay100ms)) BSP_LED_Toggle(LED1);
+		if(delayRead(&delayLED1)) BSP_LED_Toggle(LED1);
  80016ba:	480e      	ldr	r0, [pc, #56]	; (80016f4 <main+0x5c>)
  80016bc:	f000 f834 	bl	8001728 <delayRead>
  80016c0:	4603      	mov	r3, r0
@@ -3462,7 +3462,7 @@ int main(void)
  80016c4:	d002      	beq.n	80016cc <main+0x34>
  80016c6:	2000      	movs	r0, #0
  80016c8:	f7fe ff7c 	bl	80005c4 <BSP_LED_Toggle>
-		if(delayRead(&delay500ms)) BSP_LED_Toggle(LED2);
+		if(delayRead(&delayLED2)) BSP_LED_Toggle(LED2);
  80016cc:	480a      	ldr	r0, [pc, #40]	; (80016f8 <main+0x60>)
  80016ce:	f000 f82b 	bl	8001728 <delayRead>
  80016d2:	4603      	mov	r3, r0
@@ -3470,7 +3470,7 @@ int main(void)
  80016d6:	d002      	beq.n	80016de <main+0x46>
  80016d8:	2001      	movs	r0, #1
  80016da:	f7fe ff73 	bl	80005c4 <BSP_LED_Toggle>
-		if(delayRead(&delay1000ms)) BSP_LED_Toggle(LED3);
+		if(delayRead(&delayLED3)) BSP_LED_Toggle(LED3);
  80016de:	4807      	ldr	r0, [pc, #28]	; (80016fc <main+0x64>)
  80016e0:	f000 f822 	bl	8001728 <delayRead>
  80016e4:	4603      	mov	r3, r0
@@ -3478,7 +3478,7 @@ int main(void)
  80016e8:	d0e7      	beq.n	80016ba <main+0x22>
  80016ea:	2002      	movs	r0, #2
  80016ec:	f7fe ff6a 	bl	80005c4 <BSP_LED_Toggle>
-		if(delayRead(&delay100ms)) BSP_LED_Toggle(LED1);
+		if(delayRead(&delayLED1)) BSP_LED_Toggle(LED1);
  80016f0:	e7e3      	b.n	80016ba <main+0x22>
  80016f2:	bf00      	nop
  80016f4:	20000038 	.word	0x20000038
@@ -3583,15 +3583,15 @@ void API_Delays_Config(void)
 {
  8001780:	b580      	push	{r7, lr}
  8001782:	af00      	add	r7, sp, #0
-	delayInit(&delay100ms, 100);
+	delayInit(&delayLED1, DELAY_LED1);
  8001784:	2164      	movs	r1, #100	; 0x64
  8001786:	4807      	ldr	r0, [pc, #28]	; (80017a4 <API_Delays_Config+0x24>)
  8001788:	f7ff ffba 	bl	8001700 <delayInit>
-	delayInit(&delay500ms, 500);
+	delayInit(&delayLED2, DELAY_LED2);
  800178c:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  8001790:	4805      	ldr	r0, [pc, #20]	; (80017a8 <API_Delays_Config+0x28>)
  8001792:	f7ff ffb5 	bl	8001700 <delayInit>
-	delayInit(&delay1000ms, 1000);
+	delayInit(&delayLED3, DELAY_LED3);
  8001796:	f44f 717a 	mov.w	r1, #1000	; 0x3e8
  800179a:	4804      	ldr	r0, [pc, #16]	; (80017ac <API_Delays_Config+0x2c>)
  800179c:	f7ff ffb0 	bl	8001700 <delayInit>
