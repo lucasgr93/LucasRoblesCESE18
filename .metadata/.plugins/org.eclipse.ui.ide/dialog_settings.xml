@@ -17,6 +17,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/home/lucas/Repositorio CESE18/PdM_workspace/Practica 2 Punto 1"/>
 			<item value="/home/lucas/Repositorio CESE18/LucasRoblesCESE18"/>
 		</list>
 	</section>
