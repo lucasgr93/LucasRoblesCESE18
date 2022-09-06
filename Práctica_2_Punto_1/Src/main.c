@@ -83,6 +83,7 @@ int main(void)
  */
 void delayInit( delay_t * delay, tick_t duration )
 {
+	if(delay == NULL) Error_Handler();
 	delay->duration = duration;
 	delay->running = false;
 	return;
@@ -95,6 +96,7 @@ void delayInit( delay_t * delay, tick_t duration )
  */
 bool_t delayRead( delay_t * delay )
 {
+	if(delay == NULL) Error_Handler();
 	if(!delay->running)
 	{
 		delay->running = true;
@@ -117,6 +119,7 @@ bool_t delayRead( delay_t * delay )
  */
 void delayWrite( delay_t * delay, tick_t duration )
 {
+	if(delay == NULL) Error_Handler();
 	delay->duration = duration;
 	return;
 }
