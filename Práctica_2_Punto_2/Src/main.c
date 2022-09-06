@@ -90,6 +90,12 @@ int main(void)
 	}
 }
 
+/**
+ * @brief  Initialize Non-blocking delay structure
+ * @param  delay: pointer to a defined delay structure
+ * @param  duration: duration of the delay in ms
+ * @retval None
+ */
 void delayInit( delay_t * delay, tick_t duration )
 {
 	delay->duration = duration;
@@ -98,6 +104,11 @@ void delayInit( delay_t * delay, tick_t duration )
 	return;
 }
 
+/**
+ * @brief  Reads the status of the delay timer
+ * @param  delay: pointer to a defined delay structure
+ * @retval delay ended
+ */
 bool_t delayRead( delay_t * delay )
 {
 	if(!delay->running)
@@ -114,12 +125,23 @@ bool_t delayRead( delay_t * delay )
 	else return false;
 }
 
+/**
+ * @brief  Overwrites the current delay duration
+ * @param  delay: pointer to a defined delay structure
+ * @param  duration: duration of the delay in ms
+ * @retval None
+ */
 void delayWrite( delay_t * delay, tick_t duration )
 {
 	delay->duration = duration;
 	return;
 }
 
+/**
+ * @brief  Initialize all the delay structures used in the program
+ * @param  None
+ * @retval None
+ */
 void API_Delays_Config(void)
 {
 	delayInit(&delayLED1, DELAY_LED1);

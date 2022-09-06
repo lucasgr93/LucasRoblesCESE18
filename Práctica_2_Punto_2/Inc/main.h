@@ -28,14 +28,17 @@
 #include "stm32f4xx_hal.h"  		/* <- HAL include */
 #include "stm32f4xx_nucleo_144.h" 	/* <- BSP include */
 
-#define DELAY_LED1 100
-#define DELAY_LED2 500
-#define DELAY_LED3 1000
+#define DELAY_LED1 100 //Delay duration for LED1
+#define DELAY_LED2 500 //Delay duration for LED2
+#define DELAY_LED3 1000 //Delay duration for LED3
 
 typedef uint32_t tick_t; // Qué biblioteca se debe incluir para que esto compile?
 
 typedef bool bool_t;	  // Qué biblioteca se debe incluir para que esto compile?
 
+/**
+ * Structure that contains the properties used to control the delay
+ */
 typedef struct{
    tick_t startTime;
    tick_t duration;
