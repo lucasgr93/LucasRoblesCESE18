@@ -16,6 +16,7 @@
 #include "stm32f4xx_nucleo_144.h" 	/* <- BSP include */
 
 #define LED_DELAY 200
+#define MAX_DELAY 10000
 
 typedef uint32_t tick_t;
 

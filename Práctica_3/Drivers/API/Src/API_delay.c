@@ -15,9 +15,9 @@
  * @param  duration: duration of the delay in ms
  * @retval None
  */
-void delayInit( delay_t * delay, tick_t duration )
+void delayInit( delay_t * delay, tick_t duration)
 {
-	if(delay == NULL) Error_Handler();
+	if(delay == NULL || duration > MAX_DELAY) Error_Handler();
 	delay->duration = duration;
 	delay->running = false;
 	delay->startTime = 0;
@@ -38,7 +38,7 @@ bool_t delayRead( delay_t * delay )
 		delay->startTime = HAL_GetTick();
 		return false;
 	}
-	else if(delay->startTime + delay->duration <= HAL_GetTick())
+	else if(delay->startTime + delay->duration <= HAL_GetTick() && delay->duration < HAL_GetTick())
 	{
 		delay->startTime = HAL_GetTick();
 		return true;
@@ -54,6 +54,7 @@ bool_t delayRead( delay_t * delay )
  */
 void delayWrite( delay_t * delay, tick_t duration )
 {
+	if(delay == NULL || duration > MAX_DELAY) Error_Handler();
 	if(delay == NULL) Error_Handler();
 	delay->duration = duration;
 	return;
