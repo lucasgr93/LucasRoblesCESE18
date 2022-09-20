@@ -18,8 +18,6 @@
 
 void debounceFSM_init();
 void debounceFSM_update();
-void buttonPressed();
-void buttonReleased();
 bool readKey();
 
 

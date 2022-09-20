@@ -82,8 +82,9 @@ int main(void)
 	/* Configure the system clock to 180 MHz */
 	SystemClock_Config();
 
-	/*Configure the user defined delays*/
-	delayInit(&debounceDelay, DEB_DELAY);
+	/*Initialize the states machine*/
+	debounceFSM_init();
+
 
 	/*LEDs initialization*/
 	BSP_LED_Init(LED1);
@@ -109,6 +110,7 @@ int main(void)
 void debounceFSM_init()
 {
 	FSM_state = BUTTON_UP;
+	delayInit(&debounceDelay, DEB_DELAY);
 }
 
 /**
@@ -122,7 +124,7 @@ void debounceFSM_update()
 	{
 		case BUTTON_UP:
 		{
-			if(!BSP_PB_GetState(BUTTON_USER))
+			if(BSP_PB_GetState(BUTTON_USER))
 			{
 				FSM_state = BUTTON_FALLING;
 				delayRead(&debounceDelay);
@@ -133,7 +135,7 @@ void debounceFSM_update()
 		{
 			if(delayRead(&debounceDelay))
 			{
-				if(!BSP_PB_GetState(BUTTON_USER))
+				if(BSP_PB_GetState(BUTTON_USER))
 				{
 					FSM_state = BUTTON_DOWN;
 					buttonPressed();
@@ -144,7 +146,7 @@ void debounceFSM_update()
 		}
 		case BUTTON_DOWN:
 		{
-			if(BSP_PB_GetState(BUTTON_USER))
+			if(!BSP_PB_GetState(BUTTON_USER))
 			{
 				FSM_state = BUTTON_RAISING;
 				delayRead(&debounceDelay);
@@ -155,7 +157,7 @@ void debounceFSM_update()
 		{
 			if(delayRead(&debounceDelay))
 			{
-				if(BSP_PB_GetState(BUTTON_USER))
+				if(!BSP_PB_GetState(BUTTON_USER))
 				{
 					FSM_state = BUTTON_UP;
 					buttonReleased();

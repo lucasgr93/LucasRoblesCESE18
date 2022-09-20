@@ -20,6 +20,8 @@ static debounceState_t FSM_state;
 static bool btnPressed = false;
 static delay_t debounceDelay;
 static void Debouncer_Error_Handler(void);
+static void buttonPressed();
+static void buttonReleased();
 
 /**
  * @brief  Initializes FSM
@@ -100,7 +102,7 @@ void debounceFSM_update()
  * @param  None
  * @retval None
  */
-void buttonPressed()
+static void buttonPressed()
 {
 	btnPressed = true;
 	return;
@@ -111,7 +113,7 @@ void buttonPressed()
  * @param  None
  * @retval None
  */
-void buttonReleased()
+static void buttonReleased()
 {
 	return;
 }

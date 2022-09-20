@@ -43,7 +43,7 @@
 
 delay_t ledDelay;
 tick_t ledActualDelay[] = {LED_MAIN_DELAY, LED_ALTER_DELAY};
-bool ledAltDelaySelected = false;
+uint8_t ledDelaySelected = 0;
 
 /* UART handler declaration */
 
@@ -78,6 +78,8 @@ int main(void)
 
 	/* Configure button debouncer*/
 	debounceFSM_init();
+
+	/*Initialize LED delay*/
 	delayInit(&ledDelay, LED_MAIN_DELAY);
 
 	/*Initializa LEDs*/
@@ -93,8 +95,8 @@ int main(void)
 		debounceFSM_update();
 		if(readKey())
 		{
-			ledAltDelaySelected = !ledAltDelaySelected;
-			delayWrite(&ledDelay, ledActualDelay[ledAltDelaySelected]);
+			ledDelaySelected = ((ledDelaySelected + 1)%(sizeof(ledActualDelay)/sizeof(tick_t)));
+			delayWrite(&ledDelay, ledActualDelay[ledDelaySelected]);
 		}
 		if(delayRead(&ledDelay))
 		{
