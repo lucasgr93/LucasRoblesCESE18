@@ -7,6 +7,8 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ej0_blinky/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ej0_blinky/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ej1_pushButton/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ej1_pushButton/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ej2_uart\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ej2_uart\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ej2_uart/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ej2_uart/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Ejercicio1/activeLaunchMode=debug
@@ -19,5 +21,6 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pr\u00E1ctica_2_Punto_2/activeL
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pr\u00E1ctica_2_Punto_2/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pr\u00E1ctica_3\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pr\u00E1ctica_3\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Pr\u00E1ctica_4.2\ Debug/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:Ej0_blinky\ Debug/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:Ej0_blinky\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

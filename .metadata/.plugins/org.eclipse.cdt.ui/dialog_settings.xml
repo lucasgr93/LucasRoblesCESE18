@@ -31,6 +31,7 @@
 		<item key="caseSensitive" value="true"/>
 		<item key="searchFlags" value="227191"/>
 		<list key="previousPatterns">
+			<item value="I2C"/>
 			<item value="WWDG_IRQHandler"/>
 			<item value="UART3_IRQn"/>
 		</list>

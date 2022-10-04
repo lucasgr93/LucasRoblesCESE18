@@ -103,7 +103,7 @@ int main(void)
   /* Output a message on Hyperterminal using printf function */
   printf("\n\r UART Printf Example: retarget the C library printf function to the UART\n\r");
   printf("** Test finished successfully. ** \n\r");
-
+  strlen();
   /* Infinite loop */
   while (1)
   {
