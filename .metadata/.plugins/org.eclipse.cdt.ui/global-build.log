@@ -1,7 +1,21 @@
-21:37:56 **** Incremental Build of configuration Debug for project Práctica_5.2 ****
+15:11:18 **** Incremental Build of configuration Debug for project TP Final ****
 make -j4 all 
-arm-none-eabi-size   Práctica_5.2.elf 
+arm-none-eabi-gcc "../Drivers/API/Src/API_UART.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F429ZITx -DSTM32F4 -DNUCLEO_F429ZI -DUSE_HAL_DRIVER -DSTM32F429xx -c -I../Inc -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/TP Final/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/TP Final/Drivers/CMSIS/Include" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/TP Final/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/TP Final/Drivers/BSP/STM32F4xx_Nucleo_144" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/TP Final/Drivers/Core/Inc" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/TP Final/Drivers/API" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/TP Final/Drivers/API/Inc" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/TP Final/Drivers/API/Src" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/TP Final/Drivers/MPU6500/Inc" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/TP Final/Drivers/MPU6500/Src" -I"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/TP Final/Drivers/MPU6500" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/API/Src/API_UART.d" -MT"Drivers/API/Src/API_UART.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/API/Src/API_UART.o"
+arm-none-eabi-gcc -o "TP Final.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/lucas/Repositorio CESE18/LucasRoblesCESE18/TP Final/STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TP Final.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TP Final.elf
+ 
+arm-none-eabi-size   TP\ Final.elf 
+arm-none-eabi-objdump -h -S  TP\ Final.elf  > "TP Final.list"
    text	   data	    bss	    dec	    hex	filename
-   7892	     44	   1668	   9604	   2584	Práctica_5.2.elf
+  14464	     32	   1904	  16400	   4010	TP Final.elf
+Finished building: default.size.stdout
+ 
+Finished building: TP Final.list
+ 
+15:11:33 **** Incremental Build of configuration Debug for project TP Final ****
+make -j4 all 
+arm-none-eabi-size   TP\ Final.elf 
+   text	   data	    bss	    dec	    hex	filename
+  14464	     32	   1904	  16400	   4010	TP Final.elf
 Finished building: default.size.stdout
  
