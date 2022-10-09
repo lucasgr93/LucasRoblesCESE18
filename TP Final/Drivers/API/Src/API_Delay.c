@@ -43,6 +43,8 @@ bool_t delayRead( Delay_t * delay )
 			delay->startTime = HAL_GetTick();
 			elapsed = false;
 		}
+		/*We have to verify if the delay start time is less than the current timer time
+		 * in case an overflow occurs*/
 		else if(delay->startTime + delay->duration <= HAL_GetTick() && delay->startTime < HAL_GetTick())
 		{
 			delay->startTime = HAL_GetTick();

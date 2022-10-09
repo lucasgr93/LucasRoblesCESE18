@@ -444,6 +444,8 @@ bool_t delayRead( Delay_t * delay )
  800056a:	73fb      	strb	r3, [r7, #15]
  800056c:	e017      	b.n	800059e <delayRead+0x66>
 		}
+		/*We have to verify if the delay start time is less than the current timer time
+		 * in case an overflow occurs*/
 		else if(delay->startTime + delay->duration <= HAL_GetTick() && delay->startTime < HAL_GetTick())
  800056e:	687b      	ldr	r3, [r7, #4]
  8000570:	681a      	ldr	r2, [r3, #0]
